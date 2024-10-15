@@ -1,0 +1,20 @@
+name: Convert Bicep to JSON
+on: 
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Chec out the repository 
+      - uses: actions/checkout@v2
+      - name: bicep-build-output
+      - uses: Azure/bicep-build-action@v1.0.1
+      - with:
+    # Bicep main file path
+          bicepFilePath: ./create-storage-accout.bicep # default is ./main.bicep
+    # ARM template output path
+          outputFilePath: ./create-storage-accout.json # optional, default is ./azuredeploy.json
+          
+    
